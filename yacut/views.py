@@ -1,4 +1,4 @@
-from flask import flash, render_template, redirect
+from flask import flash, redirect, render_template
 
 from . import app, db
 from .forms import LinkForm
@@ -12,7 +12,7 @@ def index_view():
     if form.validate_on_submit():
         custom_id = form.custom_id.data
         if URL_map.query.filter_by(short=custom_id).first():
-            flash('Эта короткая ссылка уже занята')
+            flash(f'Имя {custom_id} уже занято!')
             return render_template('yacut.html', form=form)
         if not custom_id:
             custom_id = get_unique_short_id()

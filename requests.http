@@ -1,0 +1,51 @@
+### Получить полную ссылку - 200
+
+GET http://127.0.0.1:5000/api/id/jWNRI2lF
+Content-Type: application/json
+
+
+### Получить полную ссылку - 404
+
+GET http://127.0.0.1:5000/api/id/nonexist
+Content-Type: application/json
+
+
+### Создать короткую ссылку автоматически - 201
+
+POST http://127.0.0.1:5000/api/id/
+Content-Type: application/json
+
+{
+    "url": "https://flask-sqlalchemy.palletsprojects.com/",
+    "custom_id": ""
+}
+
+### Создать короткую ссылку из пользовательской - 201
+
+POST http://127.0.0.1:5000/api/id/
+Content-Type: application/json
+
+{
+    "url": "https://docs.sqlalchemy.org/en/14/core/type_basics.html#sqlalchemy.types.String",
+    "custom_id": "wowdoc"
+}
+
+### Создать короткую ссылку - 400
+
+POST http://127.0.0.1:5000/api/id/
+Content-Type: application/json
+
+{
+    "url": "",
+    "custom_id": ""
+}
+
+### Создать короткую ссылку из пользовательской - 400
+
+POST http://127.0.0.1:5000/api/id/
+Content-Type: application/json
+
+{
+    "url": "https://wtforms.readthedocs.io/en/3.0.x/validators/#built-in-validators",
+    "custom_id": "wowdoc"
+}
