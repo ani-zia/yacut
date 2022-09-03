@@ -41,5 +41,5 @@ def add_link():
 def get_original_url(short):
     original_url = URL_map.query.filter_by(short=short).first()
     if not original_url:
-        raise APIUsageError('Указанный id не найден', 404)
+        raise APIUsageError('Указанный id не найден', HTTPStatus.NOT_FOUND)
     return jsonify({'url': original_url.original}), HTTPStatus.OK
