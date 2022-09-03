@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from flask import flash, redirect, render_template
 
 from . import app, db
@@ -22,7 +24,8 @@ def index_view():
         )
         db.session.add(sortened_link)
         db.session.commit()
-        return render_template('yacut.html', form=form, short=custom_id), 200
+        return (render_template('yacut.html', form=form, short=custom_id),
+                HTTPStatus.OK)
     return render_template('yacut.html', form=form)
 
 

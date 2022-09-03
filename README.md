@@ -53,7 +53,7 @@ Client interface will be available on your localhost adress and for API's opport
 
 ### Tuning
 
-Тow the allowable length of a custom link is 16 characters, and an automatic link is 6 characters (4 in bytes).
+Тow the allowable length of a custom link is 16 characters, and an automatic link is 6 characters.
 
 These parameters can be changed in the `settings` file.
 

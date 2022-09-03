@@ -1,4 +1,5 @@
 import re
+from http import HTTPStatus
 
 from flask import jsonify, request
 
@@ -33,7 +34,7 @@ def add_link():
     )
     db.session.add(sortened_link)
     db.session.commit()
-    return jsonify(sortened_link.to_dict()), 201
+    return jsonify(sortened_link.to_dict()), HTTPStatus.CREATED
 
 
 @app.route('/api/id/<string:short>/', methods=['GET'])
@@ -41,4 +42,4 @@ def get_original_url(short):
     original_url = URL_map.query.filter_by(short=short).first()
     if not original_url:
         raise APIUsageError('Указанный id не найден', 404)
-    return jsonify({'url': original_url.original}), 200
+    return jsonify({'url': original_url.original}), HTTPStatus.OK

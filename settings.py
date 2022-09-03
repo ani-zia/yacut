@@ -8,7 +8,7 @@ class Config(object):
     JSON_AS_ASCII = False
 
 
-DEFAULT_LINK_LENGHT_NBYTES = 4
+DEFAULT_LINK_LENGHT = 6
 
 USER_LINK_LENGHT = 16
 
